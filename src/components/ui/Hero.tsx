@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Section } from ".";
 
 export const Hero = () => {
@@ -16,9 +17,12 @@ export const Hero = () => {
 						Descubre la belleza de nuestros brazaletes
 					</h1>
 					<div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-						<button className="text-2xl px-8 p-4 border border-black rounded-md bg-black text-white">
-							Catalogo
-						</button>
+						<Link
+							href={"/products"}
+							className="text-2xl px-8 p-4 border border-black rounded-md bg-black text-white"
+						>
+							Catálogo
+						</Link>
 						<button className="text-2xl px-8 p-4 border border-black rounded-md hover:bg-black hover:text-white">
 							Contacto
 						</button>

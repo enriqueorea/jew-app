@@ -20,7 +20,7 @@ export const Sidebar = () => {
 				</Link>
 				<Link
 					className="text-2xl font-bold text-center text-gray-700 hover:text-gray-900"
-					href={"/productos"}
+					href={"/products"}
 				>
 					Catalogo
 				</Link>

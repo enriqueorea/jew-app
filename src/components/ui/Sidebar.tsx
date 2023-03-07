@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { sidebarLinks } from "~/constants";
 import { useUiStore } from "~/store/ui.store";
 
 export const Sidebar = () => {
-	const { isSidebarOpen } = useUiStore();
+	const { isSidebarOpen, toggleSidebar } = useUiStore();
 	return (
 		<div
 			className={`flex flex-col items-center absolute z-10 h-full overflow-hidden ${
@@ -12,24 +13,16 @@ export const Sidebar = () => {
 			} h-screen bg-white`}
 		>
 			<div className="flex flex-col items-center justify-around w-full h-[70%] gap-4">
-				<Link
-					className="text-2xl font-bold text-center text-gray-700 hover:text-gray-900"
-					href={"/"}
-				>
-					Inicio
-				</Link>
-				<Link
-					className="text-2xl font-bold text-center text-gray-700 hover:text-gray-900"
-					href={"/products"}
-				>
-					Catalogo
-				</Link>
-				<Link
-					className="text-2xl font-bold text-center text-gray-700 hover:text-gray-900"
-					href={"/contact"}
-				>
-					Contacto
-				</Link>
+				{sidebarLinks.map((link) => (
+					<Link
+						onClick={() => toggleSidebar()}
+						key={link.name}
+						className="text-2xl font-bold text-center text-gray-700 hover:text-gray-900"
+						href={link.href}
+					>
+						{link.name}
+					</Link>
+				))}
 			</div>
 		</div>
 	);

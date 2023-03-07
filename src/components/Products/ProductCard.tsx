@@ -14,7 +14,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
 			<div className="relative w-60 h-36 rounded-md">
 				<Image
 					fill
-					src={urlFor(product.image[0] as string).url()}
+					src={urlFor(product.image[0]!).url()}
 					alt={product.slug.current}
 					className="w-full h-full object-contain"
 				/>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
 import MainLayout from "~/components/layouts/MainLayout";
+import { Section } from "~/components/ui";
 import type { Product } from "~/interfaces/Product.interface";
 import { sanityClient, urlFor } from "~/utils/client";
 
@@ -26,44 +27,46 @@ const ProductDetails: NextPage<IProps> = ({ product }) => {
 		);
 	return (
 		<MainLayout title={product.name} description={product.details}>
-			<div className="flex h-[100vh] flex-col md:flex-row items-center justify-center gap-4">
-				<div className="flex-1 flex flex-col gap-4 items-center">
-					<div className="relative w-[450px] h-[450px]">
-						<Image
-							src={image}
-							alt={product.slug.current}
-							fill
-							className="h-full w-full object-contain"
-						/>
+			<Section>
+				<div className="flex h-[100vh] flex-col md:flex-row items-center justify-center gap-4">
+					<div className="flex-1 flex flex-col gap-4 items-center">
+						<div className="relative w-[450px] h-[450px]">
+							<Image
+								src={image}
+								alt={product.slug.current}
+								fill
+								className="h-full w-full object-contain"
+							/>
+						</div>
+						<div className="w-full flex items-center justify-start">
+							{product.image.map((img) => (
+								<button
+									onClick={() => setImage(urlFor(img).url())}
+									type="button"
+									key={img._key}
+									className={`w-[60px] h-[60px] cursor-pointer flex items-center justify-center relative ${
+										image === urlFor(img).url()
+											? "opacity-100 border border-black"
+											: "opacity-50"
+									}`}
+								>
+									<Image
+										fill
+										className="w-full h-full object-contain"
+										src={urlFor(img).url()}
+										alt={product.name}
+									/>
+								</button>
+							))}
+						</div>
 					</div>
-					<div className="w-full flex items-center justify-start">
-						{product.image.map((img) => (
-							<button
-								onClick={() => setImage(urlFor(img).url())}
-								type="button"
-								key={img._key}
-								className={`w-[60px] h-[60px] cursor-pointer flex items-center justify-center relative ${
-									image === urlFor(img).url()
-										? "opacity-100 border border-black"
-										: "opacity-50"
-								}`}
-							>
-								<Image
-									fill
-									className="w-full h-full object-contain"
-									src={urlFor(img).url()}
-									alt={product.name}
-								/>
-							</button>
-						))}
+					<div className="flex-1 p-3 w-full flex flex-col items-start">
+						<h1 className="text-4xl font-bold">{product.name}</h1>
+						<p className="text-2xl font-bold">${product.price}</p>
+						<p className="text-xl text-gray-600">{product.details}</p>
 					</div>
 				</div>
-				<div className="flex-1 p-3 w-full flex flex-col items-start">
-					<h1 className="text-4xl font-bold">{product.name}</h1>
-					<p className="text-2xl font-bold">${product.price}</p>
-					<p className="text-xl text-gray-600">{product.details}</p>
-				</div>
-			</div>
+			</Section>
 		</MainLayout>
 	);
 };

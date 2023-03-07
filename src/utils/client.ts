@@ -1,6 +1,6 @@
 import { createClient, type ClientConfig } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
-import { SanityImage } from "~/interfaces/Product.interface";
+import type { SanityImage } from "~/interfaces/Product.interface";
 
 const client: ClientConfig = {
   projectId: "efrgjtrx",

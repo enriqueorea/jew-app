@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type { NextPage } from "next";
 import MainLayout from "~/components/layouts/MainLayout";
 import { ThreeDots } from "react-loader-spinner";
 import { api } from "~/utils/api";
 import { ProductList } from "~/components/Products";
+import type { Product } from "~/interfaces/Product.interface";
 
 const ProductsPage: NextPage = () => {
 	const { data, isFetching, isError } = api.products.getProducts.useQuery();
@@ -20,7 +22,7 @@ const ProductsPage: NextPage = () => {
 					visible={true}
 				/>
 			) : (
-				<ProductList products={data} />
+				<ProductList products={data as Product[]} />
 			)}
 		</MainLayout>
 	);

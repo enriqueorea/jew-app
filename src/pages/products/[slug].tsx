@@ -78,7 +78,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
     `;
 
-	const products = await sanityClient.fetch(query);
+	const products = await sanityClient.fetch<Product[]>(query);
 
 	const paths = products.map((product) => ({
 		params: {
@@ -96,7 +96,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 	const { slug } = ctx.params as { slug: string };
 	const query = `*[_type == "products" && slug.current == '${slug}'][0]`;
 
-	const product = await sanityClient.fetch(query, { slug });
+	const product = await sanityClient.fetch<Product>(query, { slug });
 	return {
 		props: {
 			product,

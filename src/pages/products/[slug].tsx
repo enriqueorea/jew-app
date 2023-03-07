@@ -88,7 +88,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 	return {
 		paths,
-		fallback: false,
+		fallback: "blocking",
 	};
 };
 
@@ -97,6 +97,13 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 	const query = `*[_type == "products" && slug.current == '${slug}'][0]`;
 
 	const product = await sanityClient.fetch<Product>(query, { slug });
+
+	if (!product) {
+		return {
+			notFound: true,
+		};
+	}
+
 	return {
 		props: {
 			product,

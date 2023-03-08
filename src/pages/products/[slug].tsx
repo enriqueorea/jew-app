@@ -12,9 +12,8 @@ interface IProps {
 }
 
 const ProductDetails: NextPage<IProps> = ({ product }) => {
-	const producImage = product.image
-		? urlFor(product.image[0]!).url()
-		: "/herovariant.png";
+	const producImage =
+		"image" in product ? urlFor(product.image[0]!).url() : "/herovariant.png";
 
 	const [image, setImage] = useState<string>(producImage);
 
@@ -32,31 +31,34 @@ const ProductDetails: NextPage<IProps> = ({ product }) => {
 							/>
 						</div>
 						<div className="w-full flex items-center justify-start">
-							{product.image?.map((img) => (
-								<button
-									onClick={() => setImage(urlFor(img).url())}
-									type="button"
-									key={img._key}
-									className={`w-[60px] h-[60px] cursor-pointer flex items-center justify-center relative ${
-										image === urlFor(img).url()
-											? "opacity-100 border border-black"
-											: "opacity-50"
-									}`}
-								>
-									<Image
-										fill
-										className="w-full h-full object-contain"
-										src={urlFor(img).url()}
-										alt={product.name}
-									/>
-								</button>
-							))}
+							{"image" in product &&
+								product.image?.map((img) => (
+									<button
+										onClick={() => setImage(urlFor(img).url())}
+										type="button"
+										key={img._key}
+										className={`w-[60px] h-[60px] cursor-pointer flex items-center justify-center relative ${
+											image === urlFor(img).url()
+												? "opacity-100 border border-black"
+												: "opacity-50"
+										}`}
+									>
+										<Image
+											fill
+											className="w-full h-full object-contain"
+											src={urlFor(img).url()}
+											alt={product.name}
+										/>
+									</button>
+								))}
 						</div>
 					</div>
 					<div className="flex-1 p-3 w-full flex flex-col items-start">
 						<h1 className="text-4xl font-bold">{product.name}</h1>
 						<p className="text-2xl font-bold">${product.price}</p>
-						<p className="text-xl text-gray-600">{product.details}</p>
+						<p className="text-xl text-gray-600">
+							{product.details || "Sin detalles"}
+						</p>
 					</div>
 				</div>
 			</Section>

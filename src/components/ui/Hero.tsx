@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { Section } from ".";
 
@@ -14,7 +15,7 @@ export const Hero = () => {
 				</div>
 				<div className="flex-1 flex flex-col justify-center items-center w-full md:w-1/2 p-8">
 					<h1 className="text-4xl font-bold mb-8 text-center md:text-left">
-						Descubre la belleza de nuestros brazaletes
+						Descubre la belleza de nuestra joyería Pandora
 					</h1>
 					<div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
 						<Link

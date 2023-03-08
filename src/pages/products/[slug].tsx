@@ -12,19 +12,12 @@ interface IProps {
 }
 
 const ProductDetails: NextPage<IProps> = ({ product }) => {
-	const [image, setImage] = useState<string>(urlFor(product.image[0]!).url());
-	if (!product)
-		return (
-			<ThreeDots
-				height="80"
-				width="80"
-				radius="9"
-				color="#000000"
-				ariaLabel="three-dots-loading"
-				wrapperStyle={{}}
-				visible={true}
-			/>
-		);
+	const producImage = product.image
+		? urlFor(product.image[0]!).url()
+		: "/herovariant.png";
+
+	const [image, setImage] = useState<string>(producImage);
+
 	return (
 		<MainLayout title={product.name} description={product.details}>
 			<Section>
@@ -39,7 +32,7 @@ const ProductDetails: NextPage<IProps> = ({ product }) => {
 							/>
 						</div>
 						<div className="w-full flex items-center justify-start">
-							{product.image.map((img) => (
+							{product.image?.map((img) => (
 								<button
 									onClick={() => setImage(urlFor(img).url())}
 									type="button"

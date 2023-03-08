@@ -7,11 +7,11 @@ import { ProductList } from "~/components/Products";
 import type { Product } from "~/interfaces/Product.interface";
 
 const ProductsPage: NextPage = () => {
-	const { data, isFetching, isLoading } = api.products.getProducts.useQuery();
+	const { data, isLoading } = api.products.getProducts.useQuery();
 
 	return (
 		<MainLayout title="Products" description="Products">
-			{isFetching ? (
+			{isLoading ? (
 				<div className="absolute top-1/2 left-1/2">
 					<ThreeDots
 						height="80"

@@ -9,17 +9,24 @@ type Props = {
 };
 
 export const ProductCard: FC<Props> = ({ product }) => {
+	const producImage = product.image
+		? urlFor(product.image[0]!).url()
+		: "/herovariant.png";
+
 	return (
 		<div className="flex flex-col items-center justify-center shadow-lg h-[350px] rounded-sm p-2 gap-2">
 			<div className="relative w-60 h-36 rounded-md">
 				<Image
 					fill
-					src={urlFor(product.image[0]!).url()}
-					alt={product.slug.current}
+					src={producImage}
+					alt={product.slug?.current || product.name}
 					className="w-full h-full object-contain"
+					sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
 				/>
 			</div>
-			<div className="flex flex-col items-center justify-center">
+			<div className="flex flex-col items-center justify-center text-center">
 				<h3 className="text-xl font-bold">{product.name}</h3>
 
 				<p className="text-xl font-bold">${product.price}</p>
@@ -40,7 +47,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
                 ease-in-out
                 
             "
-				href={`/products/${product.slug.current}`}
+				href={`/products/${product.slug?.current}`}
 			>
 				Ver detalles
 			</Link>

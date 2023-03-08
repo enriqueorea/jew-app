@@ -85,7 +85,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 	const paths = products.map((product) => ({
 		params: {
-			slug: product.slug.current,
+			slug: product.slug ? product.slug.current : "",
 		},
 	}));
 
@@ -111,5 +111,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 		props: {
 			product,
 		},
+		revalidate: 86400,
 	};
 };

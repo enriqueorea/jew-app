@@ -25,7 +25,7 @@ const ProductDetails: NextPage<IProps> = ({ product }) => {
 	return (
 		<MainLayout title={product.name} description={product.details}>
 			<div className="mt-24 grid place-content-center mx-auto h-full w-full gap-4">
-				<div className="w-full flex flex-col md:flex-col h-full items-center justify-center">
+				<div className="w-full flex flex-col md:flex-row h-full items-center justify-center">
 					<div className="flex flex-col gap-4 items-center">
 						<div className="relative w-[350px] h-[350px] md:w-[500px]">
 							<Image

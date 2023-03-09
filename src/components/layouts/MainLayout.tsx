@@ -17,7 +17,7 @@ const HomeLayout: FC<Props> = ({ children, title, description }) => {
 			</Head>
 			<Navbar />
 			<Sidebar />
-			<main className="flex min-h-screen flex-col items-center w-full bg-white relative">
+			<main className="flex min-h-screen flex-col items-center w-full bg-white  relative">
 				{children}
 			</main>
 		</>

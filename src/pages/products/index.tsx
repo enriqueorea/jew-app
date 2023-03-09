@@ -12,7 +12,7 @@ const ProductsPage: NextPage = () => {
 	return (
 		<MainLayout title="Products" description="Products">
 			{isLoading ? (
-				<div className="absolute top-1/2 left-1/2">
+				<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
 					<ThreeDots
 						height="80"
 						width="80"

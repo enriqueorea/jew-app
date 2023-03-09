@@ -3,5 +3,5 @@ type Props = {
 };
 
 export const Section = ({ children }: Props) => (
-	<section className="h-full w-full max-w-[1000px] mx-auto">{children}</section>
+	<section className="h-full w-full  mx-auto">{children}</section>
 );

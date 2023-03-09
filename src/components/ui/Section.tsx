@@ -3,7 +3,5 @@ type Props = {
 };
 
 export const Section = ({ children }: Props) => (
-	<section className="min-h-[100vh] w-full flex flex-row items-center justify-center">
-		{children}
-	</section>
+	<section className="h-full w-full max-w-[1000px] mx-auto">{children}</section>
 );

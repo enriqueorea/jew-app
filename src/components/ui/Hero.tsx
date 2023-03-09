@@ -5,7 +5,7 @@ import { Section } from ".";
 export const Hero = () => {
 	return (
 		<Section>
-			<div className="flex flex-col md:flex-row bg-gray-100">
+			<div className="flex flex-col md:flex-row bg-gray-100 max-w-[90%] mx-auto">
 				<div className="w-full md:w-1/2 bg-white">
 					<img
 						src="/hero.png"

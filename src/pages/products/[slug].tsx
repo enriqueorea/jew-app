@@ -20,8 +20,8 @@ const ProductDetails: NextPage<IProps> = ({ product }) => {
 	return (
 		<MainLayout title={product.name} description={product.details}>
 			<Section>
-				<div className="flex h-[100vh] flex-col md:flex-row items-center justify-center gap-4">
-					<div className="flex-1 flex flex-col gap-4 items-center">
+				<div className="flex h-[100vh] flex-col md:flex-row items-center w-[90%] mx-auto justify-center gap-4">
+					<div className="flex-1 flex flex-col gap-4 items-center w-full">
 						<div className="relative w-[450px] h-[450px]">
 							<Image
 								src={image}

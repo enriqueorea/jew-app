@@ -6,7 +6,7 @@ export const Sidebar = () => {
 	const { isSidebarOpen, toggleSidebar } = useUiStore();
 	return (
 		<div
-			className={`flex flex-col items-center absolute z-10 h-full overflow-hidden ${
+			className={`flex flex-col items-center absolute mt-20 z-10 h-full overflow-hidden ${
 				isSidebarOpen
 					? "w-full  border border-l border-t-0 border-black md:w-[350px]"
 					: "w-0"

@@ -12,7 +12,7 @@ export const Sidebar = () => {
 					: "w-0"
 			} h-screen bg-white`}
 		>
-			<div className="flex flex-col items-center justify-around w-full mt-20 h-[70%] gap-4">
+			<div className="flex flex-col items-center justify-around w-full py-20 h-[70%] gap-4">
 				{sidebarLinks.map((link) => (
 					<Link
 						onClick={() => toggleSidebar()}

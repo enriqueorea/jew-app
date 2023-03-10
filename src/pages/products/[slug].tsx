@@ -16,9 +16,7 @@ interface IProps {
 
 const ProductDetails: NextPage<IProps> = ({ product }) => {
 	const producImage: string =
-		"image" in product
-			? (urlFor(product.image[0]!).url() as string)
-			: "/herovariant.png";
+		"image" in product ? urlFor(product.image[0]!).url() : "/herovariant.png";
 
 	const [image, setImage] = useState<string>(producImage);
 
@@ -39,7 +37,7 @@ const ProductDetails: NextPage<IProps> = ({ product }) => {
 							{"image" in product &&
 								product.image?.map((img) => (
 									<button
-										onClick={() => setImage(urlFor(img).url() as string)}
+										onClick={() => setImage(urlFor(img).url())}
 										type="button"
 										key={img._key}
 										className={`w-[60px] h-[60px] cursor-pointer flex items-center justify-center relative ${

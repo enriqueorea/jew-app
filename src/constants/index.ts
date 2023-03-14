@@ -21,4 +21,5 @@ export const categories = [
   { title: "Collares y dijes", value: "necklaces" },
   { title: "Llaveros", value: "keyrings" },
   { title: "Otros", value: "others" },
+  { title: "Aretes", value: "earrings" },
 ];

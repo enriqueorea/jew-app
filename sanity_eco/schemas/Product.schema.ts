@@ -50,6 +50,7 @@ export default {
           {title: 'Collares y dijes', value: 'necklaces'},
           {title: 'Llaveros', value: 'keyrings'},
           {title: 'Otros', value: 'others'},
+          {title: 'Aretes', value: 'earrings'},
         ],
         layout: 'radio',
       },

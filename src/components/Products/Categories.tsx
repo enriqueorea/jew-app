@@ -20,7 +20,7 @@ export const Categories: FC<IProps> = ({ onFilter }) => {
 	};
 
 	return (
-		<div className="flex items-center justify-center gap-5">
+		<div className="flex items-center justify-center gap-5 flex-wrap">
 			{categories.map((category) => (
 				<button
 					onClick={() => handleFilter(category.value as Category)}

@@ -36,5 +36,23 @@ export default {
       title: 'Details',
       type: 'string',
     },
+    {
+      name: 'category',
+      title: 'Category',
+      type: 'array',
+      of: [{type: 'string'}],
+      options: {
+        list: [
+          {title: 'Nuevos Lanzamientos', value: 'new'},
+          {title: 'Charms', value: 'charms'},
+          {title: 'Brazaletes', value: 'bracelets'},
+          {title: 'Anillos', value: 'rings'},
+          {title: 'Collares y dijes', value: 'necklaces'},
+          {title: 'Llaveros', value: 'keyrings'},
+          {title: 'Otros', value: 'others'},
+        ],
+        layout: 'radio',
+      },
+    },
   ],
 }

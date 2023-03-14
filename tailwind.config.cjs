@@ -6,6 +6,9 @@ const config = {
 			gridTemplateColumns: {
 				fluid: "repeat(auto-fit, minmax(20rem, 1fr))",
 			},
+			colors: {
+				primary: "#ffc9d5",
+			},
 		},
 	},
 	plugins: [],

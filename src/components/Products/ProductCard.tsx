@@ -36,12 +36,14 @@ export const ProductCard: FC<Props> = ({ product }) => {
                 mt-4
                 bg-[#F7F7F7]
                 text-[#333333]
+				border 
+				border-primary
                 px-8
                 py-2
                 rounded-md
                 text-lg
-                hover:bg-[#333333]
-                hover:text-[#F7F7F7]
+                hover:bg-primary
+                hover:text-[#333333]
                 transition-all
                 duration-300
                 ease-in-out

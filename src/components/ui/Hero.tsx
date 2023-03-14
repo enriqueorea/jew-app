@@ -20,11 +20,11 @@ export const Hero = () => {
 					<div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
 						<Link
 							href={"/products"}
-							className="text-2xl px-8 p-4 border border-black rounded-md bg-black text-white"
+							className="text-2xl px-8 p-4 border border-primary rounded-md bg-primary text-black"
 						>
 							Catálogo
 						</Link>
-						<button className="text-2xl px-8 p-4 border border-black rounded-md hover:bg-black hover:text-white">
+						<button className="text-2xl px-8 p-4 border border-primary rounded-md hover:bg-primary hover:text-black">
 							Contacto
 						</button>
 					</div>

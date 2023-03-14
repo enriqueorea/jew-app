@@ -9,6 +9,7 @@ export interface Product {
   name: string;
   price: number;
   slug: Slug;
+  category?: Category[];
 }
 
 export interface Slug {
@@ -26,3 +27,12 @@ export interface Asset {
   _ref: string;
   _type: string;
 }
+
+export type Category =
+  | "new"
+  | "charms"
+  | "bracelets"
+  | "rings"
+  | "necklaces"
+  | "keyrings"
+  | "others";

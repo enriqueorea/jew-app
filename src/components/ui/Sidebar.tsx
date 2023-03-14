@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { sidebarLinks } from "~/constants";
 import { useUiStore } from "~/store/ui.store";
 
 export const Sidebar = () => {
 	const { isSidebarOpen, toggleSidebar } = useUiStore();
+	const router = useRouter();
 	return (
 		<div
 			className={`flex flex-col items-center absolute z-10 h-full overflow-hidden ${
@@ -17,7 +19,9 @@ export const Sidebar = () => {
 					<Link
 						onClick={() => toggleSidebar()}
 						key={link.name}
-						className="text-2xl font-bold text-center text-gray-700 hover:text-gray-900"
+						className={`text-2xl font-bold text-center ${
+							router.pathname === link.href ? "text-primary" : "text-gray-700"
+						} hover:text-gray-900`}
 						href={link.href}
 					>
 						{link.name}

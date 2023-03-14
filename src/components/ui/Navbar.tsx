@@ -14,7 +14,7 @@ export const Navbar = () => {
 						<button
 							onClick={() => toggleSidebar()}
 							type="button"
-							className="text-[37px] md:text-[48px]"
+							className="text-[37px] md:text-[48px] text-primary"
 						>
 							{isSidebarOpen ? <AiOutlineClose /> : <BiMenuAltLeft />}
 						</button>
@@ -22,7 +22,10 @@ export const Navbar = () => {
 				</div>
 				<div className="flex items-center">
 					<div className="flex items-center">
-						<Link href={"/"} className='text-[37px] md:text-[48px]'>
+						<Link
+							href={"/"}
+							className='text-[37px] md:text-[48px] text-primary'
+						>
 							<IoDiamondOutline />
 						</Link>
 					</div>

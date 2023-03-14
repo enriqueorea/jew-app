@@ -10,7 +10,7 @@ import { useState } from "react";
 const ProductsPage: NextPage = () => {
 	const { data, isLoading } = api.products.getProducts.useQuery<Product[]>();
 
-	const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+	const [filteredProducts, setFilteredProducts] = useState<Product[] | null>();
 
 	const handleFilter = (category: Category | null) => {
 		if (category === null) {
@@ -44,9 +44,7 @@ const ProductsPage: NextPage = () => {
 							/>
 						</div>
 					) : (
-						<ProductList
-							products={filteredProducts.length ? filteredProducts : data!}
-						/>
+						<ProductList products={filteredProducts || data!} />
 					)}
 				</div>
 			</div>

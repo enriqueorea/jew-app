@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 import MainLayout from "~/components/layouts/MainLayout";
+import { ShareButtons } from "~/components/Products";
 import { Section } from "~/components/ui";
 import type { Product } from "~/interfaces/Product.interface";
 import { sanityClient, urlFor } from "~/utils/client";
@@ -62,6 +63,13 @@ const ProductDetails: NextPage<IProps> = ({ product }) => {
 						<p className="text-xl text-gray-600">
 							{product.details || "Sin detalles"}
 						</p>
+						<div>
+							<ShareButtons
+								slug={product.slug.current}
+								name={product.name}
+								description={product.details}
+							/>
+						</div>
 					</div>
 				</div>
 			</div>

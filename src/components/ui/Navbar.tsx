@@ -3,6 +3,7 @@ import { BiMenuAltLeft } from "react-icons/bi";
 import { IoDiamondOutline } from "react-icons/io5";
 import { AiOutlineClose } from "react-icons/ai";
 import { useUiStore } from "~/store/ui.store";
+import Image from "next/image";
 
 export const Navbar = () => {
 	const { isSidebarOpen, toggleSidebar } = useUiStore();
@@ -21,12 +22,13 @@ export const Navbar = () => {
 					</div>
 				</div>
 				<div className="flex items-center">
-					<div className="flex items-center">
-						<Link
-							href={"/"}
-							className='text-[37px] md:text-[48px] text-primary'
-						>
-							<IoDiamondOutline />
+					<div className="flex items-center p-3 h-[50px] w-[80px]">
+						<Link href={"/"}>
+							<img
+								src={"/logo.png"}
+								alt={"logo"}
+								className="w-max-full h-auto object-cover"
+							/>
 						</Link>
 					</div>
 				</div>
